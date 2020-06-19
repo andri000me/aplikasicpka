@@ -50,6 +50,10 @@ $route['barang-jual/laporan-barang-jual'] = 'BarangJual/laporan_barang_jual';
 $route['laporan-penagihan/laporan'] = 'penagihan/laporan';
 $route['laporan-penagihan-jatuh-tempo/laporan'] = 'penagihan/laporan_jatuh_tempo';
 
+//route laporan penagihan
+$route['laporan-tagihan/laporan'] = 'tagihan/laporan';
+$route['laporan-tagihan-jatuh-tempo/laporan'] = 'tagihan/laporan_jatuh_tempo';
+
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

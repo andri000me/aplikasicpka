@@ -13,6 +13,21 @@ class BarangMasuk_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_all_barang_masuk_detail()
+	{
+		$query = $this->db->query("
+			select barang_masuk_detail.id_barang, 
+			sum(barang_masuk_detail.jumlah_masuk * barang.hargaBeli) as subtotal, barang_masuk.kode_masuk, barang_masuk.tgl_masuk,
+			tgl_tempo, barang_masuk.id_supplier, supplier.namaSupplier as nama_supplier,
+			barang.namaBarang as nama_barang, barang_masuk.id
+			from barang_masuk_detail
+			inner join barang_masuk on barang_masuk.id =barang_masuk_detail.id_masuk
+			inner join supplier on supplier.id = barang_masuk.id_supplier
+			inner join barang on barang.id =barang_masuk_detail.id_barang group by barang_masuk_detail.id_masuk
+		");
+		return $query->result_array();
+	}	
+
 	public function get_barang_masuk($id)
 	{
 

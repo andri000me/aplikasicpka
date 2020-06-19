@@ -77,6 +77,100 @@
         </div>
       </div>
     </div>
+
+    <div class="col-xl-12">
+      <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary text-center">Jatuh Tempo Penagihan</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Nomor Penagihan</th>
+                <th>Nomor Penjualan</th>
+                <th>Nama Customer</th>
+                <th>Telp</th>
+                <th>Tanggal Jatuh Tempo</th>
+                <th>Jatuh Tempo</th>
+                <th>Aksi</th>
+              </tr>
+          
+            </thead>
+            <tbody>
+              <?php foreach ($data_penagihan as $penagihan) : ?>
+                <?php if($penagihan['jatuh_tempo'] > 0 and $penagihan['jatuh_tempo'] <= 7) : ?>
+                <tr class="table-warning">
+                <?php elseif ($penagihan['jatuh_tempo'] < 0 and $penagihan['jatuh_tempo'] >= -7) : ?>
+                <tr class="table-danger">
+                <?php elseif ($penagihan['jatuh_tempo'] == 0) : ?>
+                <tr class="table-info">
+                <?php else : ?>
+                <tr>
+                <?php endif; ?>
+                <td><?= $penagihan['kode_penagihan'] ?></td>
+                <td><?= $penagihan['kode_jual'] ?></td>
+                <td><?= $penagihan['customer'] ?></td>
+                <td><?= $penagihan['telp'] ?></td>
+                <td><?= tgl_indo($penagihan['tanggal']) ?></td>
+                <td><?= $penagihan['jatuh_tempo']. ' Hari lagi' ?></td>
+                <td>
+                  <a href="<?= site_url('sms') ?>" class="btn btn-sm btn-primary"><i class="fa fa-envelope"></i></a>
+                </td>
+              </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>      
+    </div>
+
+    <div class="col-xl-12">
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary text-center">Jatuh Tempo Tagihan</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Nomor Tagihan</th>
+                  <th>Nomor Pembelian</th>
+                  <th>Nama Supplier</th>
+                  <th>Telp</th>
+                  <th>Tanggal Jatuh Tempo</th>
+                  <th>Jatuh Tempo</th>
+                </tr>
+            
+              </thead>
+              <tbody>
+                <?php foreach ($data_tagihan as $tagihan) : ?>
+                  <?php if($tagihan['jatuh_tempo'] > 0 and $tagihan['jatuh_tempo'] <= 7) : ?>
+                  <tr class="table-warning">
+                  <?php elseif ($tagihan['jatuh_tempo'] < 0 and $tagihan['jatuh_tempo'] >= -7) : ?>
+                  <tr class="table-danger">
+                  <?php elseif ($tagihan['jatuh_tempo'] == 0) : ?>
+                  <tr class="table-info">
+                  <?php else : ?>
+                  <tr>
+                  <?php endif; ?>
+                  <td><?= $tagihan['kode_tagihan'] ?></td>
+                  <td><?= $tagihan['kode_masuk'] ?></td>
+                  <td><?= $tagihan['supplier'] ?></td>
+                  <td><?= $tagihan['telp'] ?></td>
+                  <td><?= tgl_indo($tagihan['tanggal']) ?></td>
+                  <td><?= $tagihan['jatuh_tempo']. ' Hari lagi' ?></td>
+                </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>      
+    </div>
   </div>
 </div>
 <!-- /.container-fluid -->              

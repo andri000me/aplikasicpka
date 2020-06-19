@@ -7,7 +7,7 @@
             <div class="text-center">
               <h3>
                 Kirim Pesan Penagihan
-                <a href="<?= site_url('user') ?>" class="btn btn-sm btn-secondary float-right"><i class="fa fa-arrow-circle-right"></i> Kembali</a>
+                <a href="<?= site_url('/') ?>" class="btn btn-sm btn-secondary float-right"><i class="fa fa-arrow-circle-right"></i> Kembali</a>
               </h3>
               <hr>
             </div>            

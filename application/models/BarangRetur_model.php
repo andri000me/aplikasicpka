@@ -13,6 +13,21 @@ class BarangRetur_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_all_barang_retur_detail()
+	{
+		$query = $this->db->query("
+			select barang_retur_detail.id_barang, 
+			sum(barang_retur_detail.jumlah_retur * barang.hargaBeli) as subtotal, barang_retur.kode_retur, barang_retur.tgl_retur,
+			barang_retur.id_supplier, supplier.namaSupplier as nama_supplier,
+			barang.namaBarang as nama_barang, barang_retur.id
+			from barang_retur_detail
+			inner join barang_retur on barang_retur.id =barang_retur_detail.id_retur
+			inner join supplier on supplier.id = barang_retur.id_supplier
+			inner join barang on barang.id =barang_retur_detail.id_barang group by barang_retur_detail.id_retur
+		");
+		return $query->result_array();
+	}	
+
 	public function get_barang_retur($id)
 	{
 
@@ -30,7 +45,7 @@ class BarangRetur_model extends CI_Model {
     {
 		$this->db->query(
 			"update barang_retur
-			 set kode_retur = CONCAT( 'INV', LPAD($id_retur,7,'0') )
+			 set kode_retur = CONCAT( 'RTR', LPAD($id_retur,7,'0') )
         	 where id = $id_retur "
 		);
         $query = $this->db->query("select kode_retur from barang_retur where id = $id_retur");

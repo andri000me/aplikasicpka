@@ -60,11 +60,11 @@ class Penagihan extends CI_Controller {
 			echo json_encode(['status' => 'error', 'msg' => $errors]);
 		} else {
 			$id_penagihan = $this->penagihan_model->create_penagihan([
-				'id_jual' 		=> $this->input->post('idJual'),
+				'id_jual' 			=> $this->input->post('idJual'),
 				'jangka_waktu' 		=> $this->input->post('jangka_waktu'),
 				'sisa_hutang' 		=> $this->input->post('sisa_hutang'),
-				'angsuran_perbulan' 		=> $this->input->post('perbulan'),
-				'status' 		=> 'Belum Lunas'
+				'angsuran_perbulan' => $this->input->post('perbulan'),
+				'status' 			=> 'Belum Lunas'
 			]);
 
 			$kode_penagihan = $this->penagihan_model->generate_kode_penagihan($id_penagihan);

@@ -179,5 +179,20 @@ class Penagihan_model extends CI_Model {
  						 inner join customer on customer.id = barang_jual.idCustomer
  						 where barang_jual.tglTempo between '$tglAwal' and '$tglAkhir' and penagihan.status = 'Belum Lunas' order by customer.namaCustomer asc";
 		return $this->db->query($query)->result_array();
-	}	
+	}
+
+	public function get_tanggal_jatuh_tempo()
+	{
+		$query = $this->db->query(
+			"select penagihan_detail.*, DATEDIFF(tgl_byr_selanjutnya, NOW()) as jatuh_tempo,
+			 kode_penagihan, penagihan.id_jual, customer.namaCustomer as nama_customer, customer.telp, barang_jual.kodeBarangJual as kode_jual
+			 from penagihan_detail
+			 inner join penagihan on penagihan.id = penagihan_detail.id_penagihan
+			 inner join barang_jual on barang_jual.id = penagihan.id_jual
+			 inner join customer on customer.id = barang_jual.idCustomer order by tgl_byr_selanjutnya desc
+			"
+		);
+
+		return $query->result_array();		
+	}		
 }

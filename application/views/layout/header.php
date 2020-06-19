@@ -115,7 +115,7 @@
           <i class="fas fa-fw fa-luggage-cart"></i>
           <span>Transaksi Barang</span>
         </a>
-        <div id="transaksi" class="collapse" aria-labelledby="headingTransaksi" data-parent="#accordionSidebar">
+        <div id="transaksi" class="collapse <?= $this->uri->segment(1) == 'barang-masuk' || $this->uri->segment(1) == 'barang-keluar' || $this->uri->segment(1) == 'barang-retur' || $this->uri->segment(1) == 'barang-jual' ? 'show' : '' ?>" aria-labelledby="headingTransaksi" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item <?= $this->uri->segment(1) == 'barang-masuk' ? 'active' : '' ?>" href="<?=site_url('barang-masuk')?>">Barang Masuk</a>
             <a class="collapse-item <?= $this->uri->segment(1) == 'barang-keluar' ? 'active' : '' ?>" href="<?=site_url('barang-keluar')?>">Barang Keluar</a>
@@ -130,7 +130,7 @@
           <i class="fas fa-fw fa-credit-card"></i>
           <span>Hutang Piutang</span>
         </a>
-        <div id="hutang" class="collapse" aria-labelledby="headingHutang" data-parent="#accordionSidebar">
+        <div id="hutang" class="collapse <?= $this->uri->segment(1) == 'penagihan' || $this->uri->segment(1) == 'tagihan' ? 'show' : '' ?>" aria-labelledby="headingHutang" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item <?= $this->uri->segment(1) == 'tagihan' ? 'active' : '' ?>" href="<?= site_url('tagihan') ?>">Tagihan</a>
             <a class="collapse-item <?= $this->uri->segment(1) == 'penagihan' ? 'active' : '' ?>" href="<?= site_url('penagihan') ?>">Penagihan</a>
@@ -147,12 +147,12 @@
         Laporan
       </div>
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item <?= $this->uri->segment(1) == 'laporan-customer' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-supplier' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-masuk' && $this->uri->segment(2) == 'laporan'  || $this->uri->segment(1) == 'laporan-barang-keluar' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-retur' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-jual' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-penagihan' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-penagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>">
+      <li class="nav-item <?= $this->uri->segment(1) == 'laporan-customer' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-supplier' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-masuk' && $this->uri->segment(2) == 'laporan'  || $this->uri->segment(1) == 'laporan-barang-keluar' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-retur' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-jual' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-penagihan' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-penagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-tagihan' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-tagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#laporan" aria-expanded="true" aria-controls="laporan">
           <i class="fas fa-fw fa-print"></i>
           <span>Laporan</span>
         </a>
-        <div id="laporan" class="collapse" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
+        <div id="laporan" class="collapse <?= $this->uri->segment(1) == 'laporan-customer' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-supplier' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-masuk' && $this->uri->segment(2) == 'laporan'  || $this->uri->segment(1) == 'laporan-barang-keluar' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-retur' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-barang-jual' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-penagihan' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-penagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-tagihan' && $this->uri->segment(2) == 'laporan' || $this->uri->segment(1) == 'laporan-tagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' ? 'show' : '' ?>" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-customer' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-customer/laporan') ?>">Kerjasama Customer</a>
             <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-supplier' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-supplier/laporan') ?>">Kerjasama Supplier</a>
@@ -163,8 +163,8 @@
             <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-barang-jual' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-barang-jual/laporan') ?>">Barang Jual</a>
             <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-penagihan' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-penagihan/laporan') ?>">Penagihan</a>
             <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-penagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-penagihan-jatuh-tempo/laporan') ?>">Penagihan Jatuh Tempo</a>
-            <a class="collapse-item" href="cards.html">Tagihan</a>
-            <a class="collapse-item" href="cards.html">Tagihan Jatuh Tempo</a>
+            <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-tagihan' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-tagihan/laporan') ?>">Tagihan</a>
+            <a class="collapse-item <?= $this->uri->segment(1) == 'laporan-tagihan-jatuh-tempo' && $this->uri->segment(2) == 'laporan' ? 'active' : '' ?>" href="<?= site_url('laporan-tagihan-jatuh-tempo/laporan') ?>">Tagihan Jatuh Tempo</a>
           </div>
         </div>
       </li>

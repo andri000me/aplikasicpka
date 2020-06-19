@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 17 Jun 2020 pada 08.09
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.2.22
+-- Host: localhost:3306
+-- Generation Time: Jun 19, 2020 at 08:45 PM
+-- Server version: 10.1.44-MariaDB-0ubuntu0.18.04.1
+-- PHP Version: 7.2.24-0ubuntu0.18.04.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -34,23 +32,20 @@ CREATE TABLE `barang` (
   `namaBarang` varchar(100) NOT NULL,
   `satuan` varchar(30) NOT NULL,
   `hargaBeli` double NOT NULL,
-  `stok` int(11) DEFAULT 0
+  `stok` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id`, `kodeBarang`, `namaBarang`, `satuan`, `hargaBeli`, `stok`) VALUES
-(5, 'PO1590059826', 'Cangkul', 'set', 250000, 2),
-(8, 'PO1590595980', 'Spare part ', 'bh', 10000000, 100),
-(9, 'PO1590802204', 'Sparepart truk', 'bh', 10000000, 4),
-(10, 'BRG1592096762', 'Palm Oil', 'liter', 100000, 0);
+(1, 'BRG1592569328', 'spare part', 'bh', 4500000, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_jual`
+-- Table structure for table `barang_jual`
 --
 
 CREATE TABLE `barang_jual` (
@@ -66,20 +61,16 @@ CREATE TABLE `barang_jual` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_jual`
+-- Dumping data for table `barang_jual`
 --
 
 INSERT INTO `barang_jual` (`id`, `kodeBarangJual`, `namaBarangJual`, `idCustomer`, `tglJual`, `tglTempo`, `jumlahJual`, `satuan`, `hargaJual`) VALUES
-(1, 'BJ1590597626', 'MInyak', 4, '2020-05-30', '2020-06-01', 4, 'Liter', 100000),
-(2, 'BJ1590794530', 'Palm Oil', 9, '2020-05-30', '2020-06-28', 5, 'Liter', 100000),
-(3, 'BJ1590802675', 'Minyak Sawit', 10, '2020-05-30', '2020-06-25', 6, 'Liter', 100000),
-(4, 'BJ1592094962', 'Palm Oil', 9, '2020-06-14', '2020-06-19', 10, 'Liter', 100000),
-(5, 'BJ1592359813', 'Palm Oil', 8, '2020-06-17', '2020-06-17', 20, 'Liter', 100000);
+(1, 'BJ1592569635', 'Palm Oil', 1, '2020-06-19', '2020-12-19', 1000, 'Liter', 100000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_keluar`
+-- Table structure for table `barang_keluar`
 --
 
 CREATE TABLE `barang_keluar` (
@@ -91,18 +82,16 @@ CREATE TABLE `barang_keluar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_keluar`
+-- Dumping data for table `barang_keluar`
 --
 
 INSERT INTO `barang_keluar` (`id`, `kode_keluar`, `id_karyawan`, `tgl_keluar`, `keterangan`) VALUES
-(3, 'BK0000003', 1, '2020-06-14', 'Keperluan Kerja'),
-(4, 'BK0000004', 2, '2020-06-14', 'Untuk Kerja'),
-(5, 'BK0000005', 3, '2020-06-17', 'Keperluan kerja');
+(1, 'BK0000001', 3, '2020-06-19', 'Untuk Keperluan Kerja');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_keluar_detail`
+-- Table structure for table `barang_keluar_detail`
 --
 
 CREATE TABLE `barang_keluar_detail` (
@@ -113,22 +102,16 @@ CREATE TABLE `barang_keluar_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_keluar_detail`
+-- Dumping data for table `barang_keluar_detail`
 --
 
 INSERT INTO `barang_keluar_detail` (`id`, `id_keluar`, `id_barang`, `jumlah_keluar`) VALUES
-(4, 3, 8, 5),
-(5, 3, 5, 6),
-(6, 3, 9, 8),
-(7, 4, 5, 2),
-(8, 4, 9, 2),
-(9, 5, 5, 2),
-(10, 5, 8, 12);
+(1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_masuk`
+-- Table structure for table `barang_masuk`
 --
 
 CREATE TABLE `barang_masuk` (
@@ -140,19 +123,16 @@ CREATE TABLE `barang_masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_masuk`
+-- Dumping data for table `barang_masuk`
 --
 
 INSERT INTO `barang_masuk` (`id`, `kode_masuk`, `tgl_masuk`, `tgl_tempo`, `id_supplier`) VALUES
-(1, 'INV0000001', '2020-06-13', '2020-06-10', 2),
-(2, 'INV0000002', '2020-06-13', '2020-06-14', 1),
-(3, 'INV0000003', '2020-06-13', '2020-06-30', 2),
-(5, 'INV0000005', '2020-06-14', '2020-06-30', 1);
+(1, 'INV0000001', '2020-06-19', '2020-12-19', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_masuk_detail`
+-- Table structure for table `barang_masuk_detail`
 --
 
 CREATE TABLE `barang_masuk_detail` (
@@ -163,25 +143,16 @@ CREATE TABLE `barang_masuk_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_masuk_detail`
+-- Dumping data for table `barang_masuk_detail`
 --
 
 INSERT INTO `barang_masuk_detail` (`id`, `id_masuk`, `id_barang`, `jumlah_masuk`) VALUES
-(1, 1, 8, 20),
-(2, 1, 9, 20),
-(3, 1, 8, 20),
-(4, 2, 8, 50),
-(5, 2, 9, 50),
-(6, 2, 5, 50),
-(7, 3, 5, 30),
-(15, 5, 5, 2),
-(16, 5, 8, 2),
-(17, 5, 9, 2);
+(1, 1, 1, 4);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_retur`
+-- Table structure for table `barang_retur`
 --
 
 CREATE TABLE `barang_retur` (
@@ -192,16 +163,16 @@ CREATE TABLE `barang_retur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_retur`
+-- Dumping data for table `barang_retur`
 --
 
 INSERT INTO `barang_retur` (`id`, `kode_retur`, `id_supplier`, `tgl_retur`) VALUES
-(2, 'INV0000002', 13, '2020-06-15');
+(1, 'RTR0000001', 1, '2020-06-19');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang_retur_detail`
+-- Table structure for table `barang_retur_detail`
 --
 
 CREATE TABLE `barang_retur_detail` (
@@ -213,17 +184,16 @@ CREATE TABLE `barang_retur_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang_retur_detail`
+-- Dumping data for table `barang_retur_detail`
 --
 
 INSERT INTO `barang_retur_detail` (`id`, `id_retur`, `id_barang`, `jumlah_retur`, `keterangan`) VALUES
-(3, 2, 9, 70, 'Rusak'),
-(4, 2, 5, 600, 'Rusak');
+(1, 1, 1, 1, 'Rusak');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
@@ -238,19 +208,16 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `customer`
+-- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`id`, `kodeCustomer`, `namaCustomer`, `alamat`, `telp`, `penanggungJawab`, `tglPersetujuan`, `berkas`) VALUES
-(4, 'CS1590597571', 'PT. Berkat', 'Palangka', '085251141111', 'Imah', '2020-05-30', ''),
-(8, 'CS1590741703', 'PT. Sumber Jaya Abadi', '    A.Yani    ', '089618573639', 'Hoiriyah', '2020-05-29', '20200529CS1590741703.pdf'),
-(9, 'CS1590794485', 'PT. Citra Putra Kebun Asri', 'Banjarmasin', '089618573639', 'Hendra', '2020-05-30', 'CS1590794485.pdf'),
-(10, 'CS1590802577', 'PT. Suka Ria', 'BanjarBaru', '089618573639', 'Budi', '2020-05-30', 'CS1590802577.pdf');
+(1, 'CS1592569369', 'PT. Sumber Jaya Abadi', 'Jl. A Yani Km 7.0', '089627306954', 'Bambang Prakarsa', '2020-06-19', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `karyawan`
+-- Table structure for table `karyawan`
 --
 
 CREATE TABLE `karyawan` (
@@ -261,18 +228,18 @@ CREATE TABLE `karyawan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `karyawan`
+-- Dumping data for table `karyawan`
 --
 
 INSERT INTO `karyawan` (`id`, `nik`, `namaKaryawan`, `noTelp`) VALUES
-(1, '89673272', 'Fahrul Razzi', '089627306954'),
-(2, '9878654', 'Ibnu Hasfinoza', '089616564578'),
-(3, '11367', 'Leonel Messi', '089627306954');
+(1, '11367', 'Fahrul Razzi', '089627306954'),
+(2, '11369', 'Ibnu Hasfinoza', '089627306954'),
+(3, '18928', 'Razzy Tirta', '089627306954');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penagihan`
+-- Table structure for table `penagihan`
 --
 
 CREATE TABLE `penagihan` (
@@ -286,21 +253,16 @@ CREATE TABLE `penagihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penagihan`
+-- Dumping data for table `penagihan`
 --
 
 INSERT INTO `penagihan` (`id`, `kode_penagihan`, `id_jual`, `jangka_waktu`, `sisa_hutang`, `angsuran_perbulan`, `status`) VALUES
-(1, 'PGN0000001', 4, 6, 0, 183333, 'Lunas'),
-(2, 'PGN0000002', 5, 6, -2, 366667, 'Lunas'),
-(3, 'PGN0000003', 1, 6, 366667, 73333, 'Belum Lunas'),
-(4, 'PGN0000004', 2, 12, 504000, 45833, 'Belum Lunas'),
-(5, 'PGN0000005', 3, 12, 605000, 55000, 'Belum Lunas'),
-(6, 'PGN0000006', 3, 12, 605000, 55000, 'Belum Lunas');
+(1, 'PGN0000001', 1, 12, 100833000, 9166667, 'Belum Lunas');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penagihan_detail`
+-- Table structure for table `penagihan_detail`
 --
 
 CREATE TABLE `penagihan_detail` (
@@ -315,32 +277,16 @@ CREATE TABLE `penagihan_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penagihan_detail`
+-- Dumping data for table `penagihan_detail`
 --
 
 INSERT INTO `penagihan_detail` (`id`, `id_penagihan`, `angsuran`, `jumlah_bayar`, `tgl_bayar`, `tgl_byr_selanjutnya`, `keterlambatan`, `denda`) VALUES
-(2, 1, 0x416e67737572616e206b652d31, 183333, '2020-06-17', '2020-07-17', 'Tepat Waktu', 0),
-(3, 1, 0x416e67737572616e206b652d32, 183333, '2020-07-17', '2020-08-17', 'Tepat Waktu', 0),
-(4, 1, 0x416e67737572616e206b652d33, 183333, '2020-08-17', '2020-09-17', 'Tepat Waktu', 0),
-(5, 1, 0x416e67737572616e206b652d34, 183333, '2020-09-17', '2020-10-17', 'Tepat Waktu', 0),
-(6, 1, 0x416e67737572616e206b652d35, 183333, '2020-10-17', '2020-11-17', 'Tepat Waktu', 0),
-(7, 1, 0x416e67737572616e206b652d36, 183333, '2020-11-17', '2020-12-17', 'Tepat Waktu', 0),
-(8, 1, 0x416e67737572616e206b652d37, 250, '2020-12-17', '2021-01-17', 'Tepat Waktu', 0),
-(9, 2, 0x416e67737572616e206b652d31, 466667, '2020-06-17', '2020-07-17', '1 Bulan', 100000),
-(10, 2, 0x416e67737572616e206b652d32, 566667, '2020-07-17', '2020-08-17', '2 Bulan', 200000),
-(11, 2, 0x416e67737572616e206b652d33, 366667, '2020-08-17', '2020-09-17', 'Tepat Waktu', 0),
-(12, 2, 0x416e67737572616e206b652d34, 366667, '2020-09-17', '2020-10-17', 'Tepat Waktu', 0),
-(13, 2, 0x416e67737572616e206b652d35, 366667, '2020-10-17', '2020-11-17', 'Tepat Waktu', 0),
-(14, 2, 0x416e67737572616e206b652d36, 366667, '2020-11-17', '2020-12-17', 'Tepat Waktu', 0),
-(15, 3, 0x416e67737572616e206b652d31, 73333, '2020-06-17', '2020-07-17', 'Tepat Waktu', 0),
-(16, 4, 0x416e67737572616e206b652d31, 46000, '2020-06-17', '2020-07-17', 'Tepat Waktu', 0),
-(17, 5, 0x416e67737572616e206b652d31, 55000, '2020-06-17', '2020-06-23', 'Tepat Waktu', 0),
-(18, 6, 0x416e67737572616e206b652d31, 55000, '2020-06-17', '2020-06-24', 'Tepat Waktu', 0);
+(1, 1, 0x416e67737572616e206b652d31, 9167000, '2020-06-19', '2020-07-19', 'Tepat Waktu', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -355,49 +301,65 @@ CREATE TABLE `supplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supplier`
+-- Dumping data for table `supplier`
 --
 
 INSERT INTO `supplier` (`id`, `kodeSupplier`, `namaSupplier`, `alamat`, `telp`, `penanggungJawab`, `tglPersetujuan`, `berkas`) VALUES
-(1, 'SP1589972159', 'PT. Sumber Jaya Abadi', ' Jl. A Yani KM 10 ', '081351278556', 'Sutrisno', '2020-05-30', ''),
-(2, 'SP1590596424', 'PT. Angkasa', 'Banjarbaru', '089618573639', 'Ayi', '2020-05-28', ''),
-(11, 'SP1590766322', 'adis', '  adis  ', '75558868687678', 'adis', '2020-05-29', '20200603SP1590766322.pdf'),
-(12, 'SP1590802245', 'PT.CPKA', ' Banjarmasin ', '085251141111', 'Fahrul Razi', '2020-05-30', ''),
-(13, 'SP1592183694', 'PT. Laut Timur Abadi', 'Jl. Ampera', '081351278556', 'Bambang', '2020-06-15', 'SP1592183694.pdf');
+(1, 'SP1592569425', 'PT. Laut Timur Abadi', 'Jl. Lambung Mangkurat', '089627306954', 'Leonard Andreas', '2020-06-19', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tagihan`
+-- Table structure for table `tagihan`
 --
 
 CREATE TABLE `tagihan` (
   `id` int(11) NOT NULL,
-  `kodeTagihan` varchar(50) NOT NULL,
-  `idMasuk` int(11) NOT NULL,
-  `idSupplier` int(11) NOT NULL,
-  `idBarang` int(50) NOT NULL,
-  `ppn` varchar(12) NOT NULL,
-  `tglTempo` date NOT NULL,
-  `jumlahPembayaran` int(11) NOT NULL,
-  `jumlahRetur` int(11) NOT NULL DEFAULT 0,
-  `keterlambatan` varchar(30) NOT NULL,
-  `denda` int(11) NOT NULL,
-  `idPenanggungJawab` int(11) NOT NULL
+  `kode_tagihan` varchar(50) NOT NULL,
+  `id_masuk` int(11) NOT NULL,
+  `no_retur` varchar(11) DEFAULT NULL,
+  `jangka_waktu` int(11) NOT NULL,
+  `jumlah_retur` int(11) NOT NULL,
+  `sisa_hutang` int(11) NOT NULL,
+  `angsuran_perbulan` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tagihan`
+-- Dumping data for table `tagihan`
 --
 
-INSERT INTO `tagihan` (`id`, `kodeTagihan`, `idMasuk`, `idSupplier`, `idBarang`, `ppn`, `tglTempo`, `jumlahPembayaran`, `jumlahRetur`, `keterlambatan`, `denda`, `idPenanggungJawab`) VALUES
-(1, 'KT1590596838', 2, 2, 8, '10%', '2020-06-03', 900000, 3, 'Tepat Waktu', 0, 0),
-(2, 'KT1590802474', 4, 12, 9, '10%', '2020-06-05', 5000000, 1, 'Tepat Waktu', 0, 0);
+INSERT INTO `tagihan` (`id`, `kode_tagihan`, `id_masuk`, `no_retur`, `jangka_waktu`, `jumlah_retur`, `sisa_hutang`, `angsuran_perbulan`, `status`) VALUES
+(1, 'TG0000001', 1, 'RTR0000001', 12, 4950000, 13612500, 1237500, 'Belum Lunas');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `tagihan_detail`
+--
+
+CREATE TABLE `tagihan_detail` (
+  `id` int(11) NOT NULL,
+  `id_tagihan` int(11) NOT NULL,
+  `angsuran` varchar(30) NOT NULL,
+  `jumlah_bayar` int(11) NOT NULL,
+  `tgl_bayar` date NOT NULL,
+  `tgl_byr_selanjutnya` date NOT NULL,
+  `keterlambatan` varchar(30) NOT NULL,
+  `denda` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tagihan_detail`
+--
+
+INSERT INTO `tagihan_detail` (`id`, `id_tagihan`, `angsuran`, `jumlah_bayar`, `tgl_bayar`, `tgl_byr_selanjutnya`, `keterlambatan`, `denda`) VALUES
+(1, 1, 'Angsuran ke-1', 1237500, '2020-06-19', '2020-07-19', 'Tepat Waktu', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -408,7 +370,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `id_role`) VALUES
@@ -421,190 +383,185 @@ INSERT INTO `user` (`id`, `username`, `password`, `id_role`) VALUES
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_jual`
+-- Indexes for table `barang_jual`
 --
 ALTER TABLE `barang_jual`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_keluar`
+-- Indexes for table `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_keluar_detail`
+-- Indexes for table `barang_keluar_detail`
 --
 ALTER TABLE `barang_keluar_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_masuk`
+-- Indexes for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_masuk_detail`
+-- Indexes for table `barang_masuk_detail`
 --
 ALTER TABLE `barang_masuk_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_retur`
+-- Indexes for table `barang_retur`
 --
 ALTER TABLE `barang_retur`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `barang_retur_detail`
+-- Indexes for table `barang_retur_detail`
 --
 ALTER TABLE `barang_retur_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `customer`
+-- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `karyawan`
+-- Indexes for table `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `penagihan`
+-- Indexes for table `penagihan`
 --
 ALTER TABLE `penagihan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `penagihan_detail`
+-- Indexes for table `penagihan_detail`
 --
 ALTER TABLE `penagihan_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `supplier`
+-- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tagihan`
+-- Indexes for table `tagihan`
 --
 ALTER TABLE `tagihan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `tagihan_detail`
+--
+ALTER TABLE `tagihan_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
+-- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_jual`
+-- AUTO_INCREMENT for table `barang_jual`
 --
 ALTER TABLE `barang_jual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_keluar`
+-- AUTO_INCREMENT for table `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_keluar_detail`
+-- AUTO_INCREMENT for table `barang_keluar_detail`
 --
 ALTER TABLE `barang_keluar_detail`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_masuk`
+-- AUTO_INCREMENT for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_masuk_detail`
+-- AUTO_INCREMENT for table `barang_masuk_detail`
 --
 ALTER TABLE `barang_masuk_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_retur`
+-- AUTO_INCREMENT for table `barang_retur`
 --
 ALTER TABLE `barang_retur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `barang_retur_detail`
+-- AUTO_INCREMENT for table `barang_retur_detail`
 --
 ALTER TABLE `barang_retur_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `customer`
+-- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `karyawan`
+-- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT untuk tabel `penagihan`
+-- AUTO_INCREMENT for table `penagihan`
 --
 ALTER TABLE `penagihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `penagihan_detail`
+-- AUTO_INCREMENT for table `penagihan_detail`
 --
 ALTER TABLE `penagihan_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `supplier`
+-- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `tagihan`
+-- AUTO_INCREMENT for table `tagihan`
 --
 ALTER TABLE `tagihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `tagihan_detail`
+--
+ALTER TABLE `tagihan_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
