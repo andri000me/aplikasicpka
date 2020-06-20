@@ -61,6 +61,8 @@
                     <?php foreach ($barang_retur as $retur) : ?>
                     <?php if($retur['kode_retur'] == $edit_tagihan['no_retur']) : ?>
                     <input type="text" name="idRetur" value="<?= '['.$retur['kode_retur']. ' - '. $retur['nama_supplier'].']' ?>" class="form-control" readonly>
+                    <?php else : ?>
+                      <input type="text" class="form-control" placeholder="Tidak ada" readonly disabled>
                     <?php endif; ?>  
                     <?php endforeach ?>                                    
                   </div>

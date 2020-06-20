@@ -173,8 +173,8 @@
 
 					<div class="row no-print">
 						<div class="col-12">
-							<a href="<?= site_url('penagihan') ?>" class="btn btn-secondary"><i class="fa fa-arrow-circle-left"></i> Kembali</a>							
-						  	<a href="<?= site_url('penagihan/printDetailPenagihan/').$detail_tagih['id_penagihan'] ?>" target="_blank" class="btn btn-success float-right"><i class="fas fa-print"></i> Print</a>
+							<a href="<?= site_url('penagihan') ?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-circle-left"></i> Kembali</a>							
+						  	<a href="<?= site_url('penagihan/printDetailPenagihan/').$detail_tagih['id_penagihan'] ?>" target="_blank" class="btn btn-sm btn-success float-right"><i class="fas fa-print"></i> Print</a>
 						</div>
 					</div>              							
 					<?php endforeach; ?>

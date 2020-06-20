@@ -23,18 +23,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1;?>
-                        <?php $total = 0 ?>
+                        <?php $total = 0; $no = 1; ?>
                         <?php foreach($BarangJual as $jual) : ?>
-                            <?php if($jual['jatuh_tempo'] > 0 and $jual['jatuh_tempo'] <= 7) : ?>
-                            <tr class="table-warning">
-                            <?php elseif ($jual['jatuh_tempo'] < 0 and $jual['jatuh_tempo'] >= -7) : ?>
-                            <tr class="table-danger">
-                            <?php elseif ($jual['jatuh_tempo'] == 0) : ?>
-                            <tr class="table-info">
-                            <?php else : ?>
-                            <tr>
-                            <?php endif; ?>
+                        <?php if($jual['jatuh_tempo'] > 0 and $jual['jatuh_tempo'] <= 7) : ?>
+                        <tr class="table-warning">
+                        <?php elseif ($jual['jatuh_tempo'] < 0 and $jual['jatuh_tempo'] >= -7) : ?>
+                        <tr class="table-danger">
+                        <?php elseif ($jual['jatuh_tempo'] == 0) : ?>
+                        <tr class="table-info">
+                        <?php else : ?>
+                        <tr>
+                        <?php endif; ?>
                             <td class="text-center"><?= $no++; ?></td>
                             <td><?= $jual['kodeBarangJual'] ?></td>
                             <td><?= date('d M Y', strtotime($jual['tglJual'])) ?></td>

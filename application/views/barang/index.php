@@ -28,11 +28,11 @@
                             <td><?= $item['namaBarang'] ?></td>
                             <td><?= $item['satuan'] ?></td>
                             <td><?= $item['stok'] ?></td>
-                            <td>Rp. <?= number_format($item['hargaBeli'],0,".",".") ?></td>
+                            <td><?= rupiah($item['hargaBeli']) ?></td>
                             <td class="text-center">
                                 <a href="<?= site_url('barang/edit/').$item['id'] ?>" class="btn btn-circle btn-sm btn-success"><i class="fa fa-edit"></i></a>
                                 <a href="<?= site_url('barang/delete/').$item['id'] ?>" class="btn btn-circle btn-sm btn-danger" data-id="<?= $item['id'] ?>" id="hapus-barang" data-title="<?= $item['namaBarang'] ?>"><i class="fa fa-trash"></i></a>
-                                </td>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

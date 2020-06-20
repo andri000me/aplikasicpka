@@ -13,7 +13,7 @@
     <h5 class="text-center"><strong>LAPORAN STOK BARANG</strong></h5>
     <br><br><br>
     <div class="container-fluid">
-    <table class="table table-bordered">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                 <th class="text-center" style="width: 1px;">NO</th>
@@ -38,12 +38,13 @@
                 <?php endforeach; ?>
             </tbody>
         </table><br><br><br>
+
         <table width="100%" align="right" border="0" style='font-size:15px'>
             <tr>
                 <td align="left">Dibuat Oleh :<br>Banjarmasin, <?php echo tgl_indo(date('Y-m-d'));?><br><br><br><br>
                     <?php foreach ($persetujuan as $setuju) : ?>
-                        <u><?= $setuju['namaKaryawan'] ?></u>
-                        <br>NIK.<?= $setuju['nik'] ?>
+                    <u><?= $setuju['namaKaryawan'] ?></u>
+                    <br>NIK.<?= $setuju['nik'] ?>
                     <?php endforeach; ?>
                 </td>
             </tr>

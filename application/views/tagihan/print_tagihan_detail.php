@@ -25,7 +25,7 @@
 						$ppn = 0.1;
 						$hitung_ppn = $total * $ppn;
 						$totalppn = $total + $hitung_ppn;
-							$retur = $tagihan['jumlah_retur'];
+						$retur = $tagihan['jumlah_retur'];
 					?>
 					<div class="row">
 						<div class="col-lg-12">
@@ -117,7 +117,13 @@
 		                      		<td><?= $detail_tagih['angsuran'] ?></td>
 		                      		<td><?= rupiah($detail_tagih['jumlah_bayar']) ?></td>
 		                      		<td><?= tgl_indo($detail_tagih['tgl_bayar']) ?></td>
-		                      		<td><?= tgl_indo($detail_tagih['tgl_byr_selanjutnya']) ?></td>
+		                      		<td>
+		                      			<?php if($detail_tagih['tgl_byr_selanjutnya'] == '0000-00-00') : ?>
+		                      				Lunas
+		                      			<?php else : ?>
+		                      			<?= tgl_indo($detail_tagih['tgl_byr_selanjutnya']) ?>
+		                      			<?php endif; ?>
+		                      		</td>
 		                      		<td><?= $detail_tagih['keterlambatan'] ?></td>
 		                      		<td><?= rupiah($detail_tagih['denda']) ?></td>
 		                      		<?php 
@@ -145,9 +151,15 @@
 		                      	</tr>		                      				                    	
 
 		                      	<tr>
+		                        	<th style="width:50%">Total Retur</th>
+		                        	<td>: <?= rupiah($retur) ?></td>
+		                      	</tr>
+		                      	
+		                      	<tr>
 		                        	<th style="width:50%">Total Angsuran</th>
 		                        	<td>: <?= rupiah($totalAngsuran) ?></td>
 		                      	</tr>
+
 
 		                      	<tr>
 		                        	<th style="width:70%">Sisa Hutang Yang Harus Di Bayar</th>

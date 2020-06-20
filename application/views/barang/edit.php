@@ -11,15 +11,17 @@
               </h3>
               <hr>
             </div>
+
             <form id="barang-form">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label class="col-lg-12">Kode Barang</label>
-                      <input type="hidden" id="id" name="id" value="<?=$edit_barang['id']?>">
-                      <input type="text" name="kodeBarang" class="form-control" placeholder="Kode Barang" value="<?= $edit_barang['kodeBarang'] ?>" readonly>
+                    <input type="hidden" id="id" name="id" value="<?=$edit_barang['id']?>">
+                    <input type="text" name="kodeBarang" class="form-control" placeholder="Kode Barang" value="<?= $edit_barang['kodeBarang'] ?>" readonly>
                   </div>
                 </div>
+
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label>Barang</label>
@@ -30,16 +32,16 @@
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label>Satuan</label>
-                      <select name="satuan" class="custom-select form-control">
-                        <option selected disabled >Pilih Satuan</option>
-                        <option value="bh" <?= $edit_barang['satuan'] == 'bh' ? 'selected' : null ?>>Bh</option>
-                        <option value="btl" <?= $edit_barang['satuan'] == 'btl' ? 'selected' : null ?>>Btl</option>
-                        <option value="dus" <?= $edit_barang['satuan'] == 'dus' ? 'selected' : null ?>>Dus</option>
-                        <option value="kg" <?= $edit_barang['satuan'] == 'kg' ? 'selected' : null ?>>Kg</option>
-                        <option value="liter" <?= $edit_barang['satuan'] == 'liter' ? 'selected' : null ?>>Liter</option>
-                        <option value="pcs" <?= $edit_barang['satuan'] == 'pcs' ? 'selected' : null ?>>Pcs</option>
-                        <option value="set" <?= $edit_barang['satuan'] == 'set' ? 'selected' : null ?>>Set</option>
-                      </select>
+                    <select name="satuan" class="custom-select form-control">
+                      <option selected disabled >Pilih Satuan</option>
+                      <option value="bh" <?= $edit_barang['satuan'] == 'bh' ? 'selected' : null ?>>Bh</option>
+                      <option value="btl" <?= $edit_barang['satuan'] == 'btl' ? 'selected' : null ?>>Btl</option>
+                      <option value="dus" <?= $edit_barang['satuan'] == 'dus' ? 'selected' : null ?>>Dus</option>
+                      <option value="kg" <?= $edit_barang['satuan'] == 'kg' ? 'selected' : null ?>>Kg</option>
+                      <option value="liter" <?= $edit_barang['satuan'] == 'liter' ? 'selected' : null ?>>Liter</option>
+                      <option value="pcs" <?= $edit_barang['satuan'] == 'pcs' ? 'selected' : null ?>>Pcs</option>
+                      <option value="set" <?= $edit_barang['satuan'] == 'set' ? 'selected' : null ?>>Set</option>
+                    </select>
                   </div>
                 </div>
 
@@ -49,12 +51,12 @@
                     <input type="text" name="harga" class="form-control" placeholder="Isikan Harga barang" value="<?= $edit_barang['hargaBeli'] ?>">
                   </div>
                 </div>
-              </div>
 
-              <div class="col-lg-12">
-                <div class="text-center">
-                  <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i> Ubah</button>
-                  <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-undo"></i> Reset</button>
+                <div class="col-lg-12">
+                  <div class="text-center">
+                    <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i> Ubah</button>
+                    <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-undo"></i> Reset</button>
+                  </div>
                 </div>
               </div>
             </form>

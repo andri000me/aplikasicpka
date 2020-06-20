@@ -15,13 +15,15 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Dari Tanggal</label>
-                                        <input type="date" name="tglAwal" class="form-control" required>
+                                        <input type="date" name="tglAwal" class="form-control" value="<?= date('Y-m-01') ?>">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <label>Sampai Tanggal</label>
-                                    <input type="date" name="tglAkhir" class="form-control" required>
+                                    <div class="form-group">
+                                        <label>Sampai Tanggal</label>
+                                        <input type="date" name="tglAkhir" class="form-control" value="<?= date('Y-m-t') ?>">
+                                    </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="text-center">

@@ -75,7 +75,13 @@
                                 <td><?= $detail_tagih['angsuran'] ?></td>
                                 <td><?= rupiah($detail_tagih['jumlah_bayar']) ?></td>
                                 <td><?= tgl_indo($detail_tagih['tgl_bayar']) ?></td>
-                                <td><?= tgl_indo($detail_tagih['tgl_byr_selanjutnya']) ?></td>
+                                <td>
+                                    <?php if($detail_tagih['tgl_byr_selanjutnya'] == '0000-00-00') : ?>
+                                        Lunas
+                                    <?php else : ?>
+                                    <?= tgl_indo($detail_tagih['tgl_byr_selanjutnya']) ?>
+                                    <?php endif; ?>
+                                </td>
                                 <td><?= $detail_tagih['keterlambatan'] ?></td>
                                 <td><?= rupiah($detail_tagih['denda']) ?></td>
                                 <?php 

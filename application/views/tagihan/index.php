@@ -27,15 +27,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $no = 1;
-                        foreach($tagihan as $tagih) : ?>
-                        <?php 
+                        <?php foreach($tagihan as $tagih) : ?>
+                        <?php
+                            $no = 1;
                             $total = $tagih['subtotal'];
                             $ppn = 0.1;
                             $hitung_ppn = $total * $ppn;
                             $subtotal = $total + $hitung_ppn;
                         ?>
-                        <tr>
                         <?php if($tagih['status'] == 'Belum Lunas'): ?>
                             <tr class="table-warning">
                         <?php else : ?>
@@ -52,7 +51,7 @@
                             <td><?= $tagih['nama_supplier'] ?></td>
                             <td><?= tgl_indo($tagih['tgl_masuk']) ?></td>
                             <td><?= tgl_indo($tagih['tgl_tempo']) ?></td>
-                            <td class="text-center"> 
+                            <td class="text-center">
                                 <?php if($tagih['no_retur'] == '') : ?>
                                     <span class="badge badge-info">tidak ada retur</span>
                                 <?php else : ?>
@@ -73,62 +72,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready( function () {
-    $(document).on('click', '#hapus-tagihan', function(e) {
-        e.preventDefault();
-        id = $(this).data('id');
-        var title = $(this).data('title');
-        swal({
-            title: 'Apakah kamu yakin ingin menghapus "'+title+'" ?',
-            text: "data yang terhapus tidak dapat dikembalikan!",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger m-l-10',
-            buttonsStyling: false
-        })
-        .then((willdelete) => {
-            if (willdelete) {
-                $.ajax({
-                    url: "<?= site_url('tagihan/delete/') ?>" + id,
-                    method: "post",
-                    datatype: "json",
-                    success: function(response) {
-                        var response = $.parseJSON(response);
-                        if(response.status == 'success') {
-                            swal(
-                                'Deleted!',
-                                'Data berhasil dihapus',
-                                'success'
-                            )
-                            window.location.href="<?= site_url('tagihan'); ?>";
-                        } else {
-                            swal(
-                                'Cancelled',
-                                ' "'+title+'" masih memiliki barang, silahkan hapus barang terlebih dahulu',
-                                'error'
-                            );
-                        }
-                    },
-                    error: function(){
-                      swal("oops. something wrong happened.");
-                    }
-                });
-            }
-        },
-        function(dismiss) {
-            if(dismiss == 'cancel') {
-                swal(
-                    'Cancelled',
-                    'Your imaginary file is safe :)',
-                    'error'
-                )
-            }
-        });
-    });
-  });
-</script>

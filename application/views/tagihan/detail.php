@@ -102,7 +102,13 @@
 		                      		<td><?= $detail_tagih['angsuran'] ?></td>
 		                      		<td><?= rupiah($detail_tagih['jumlah_bayar']) ?></td>
 		                      		<td><?= tgl_indo($detail_tagih['tgl_bayar']) ?></td>
-		                      		<td><?= tgl_indo($detail_tagih['tgl_byr_selanjutnya']) ?></td>
+		                      		<td>
+		                      			<?php if($detail_tagih['tgl_byr_selanjutnya'] == '0000-00-00') : ?>
+		                      				Lunas
+		                      			<?php else : ?>
+		                      			<?= tgl_indo($detail_tagih['tgl_byr_selanjutnya']) ?>
+		                      			<?php endif; ?>
+		                      		</td>
 		                      		<td><?= $detail_tagih['keterlambatan'] ?></td>
 		                      		<td><?= rupiah($detail_tagih['denda']) ?></td>
 		                      		<?php 
@@ -127,8 +133,12 @@
 		                      	<tr>
 		                        	<th style="width:50%">Total Hutang</th>
 		                        	<td>: <?= rupiah($totalppn) ?></td>
-		                      	</tr>		                      				                    	
+		                      	</tr>
 
+		                      	<tr>
+		                        	<th style="width:50%">Total Retur</th>
+		                        	<td>: <?= rupiah($retur) ?></td>
+		                      	</tr>		                      		                      		                   	
 		                      	<tr>
 		                        	<th style="width:50%">Total Angsuran</th>
 		                        	<td>: <?= rupiah($totalAngsuran) ?></td>
@@ -154,8 +164,8 @@
 
 					<div class="row no-print">
 						<div class="col-12">
-							<a href="<?= site_url('tagihan') ?>" class="btn btn-secondary"><i class="fa fa-arrow-circle-left"></i> Kembali</a>							
-						  	<a href="<?= site_url('tagihan/printDetailTagihan/').$detail_tagih['id_tagihan'] ?>" target="_blank" class="btn btn-success float-right"><i class="fas fa-print"></i> Print</a>
+							<a href="<?= site_url('tagihan') ?>" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-circle-left"></i> Kembali</a>							
+						  	<a href="<?= site_url('tagihan/printDetailTagihan/').$detail_tagih['id_tagihan'] ?>" target="_blank" class="btn btn-sm btn-success float-right"><i class="fas fa-print"></i> Print</a>
 						</div>
 					</div>              							
 					<?php endforeach; ?>
