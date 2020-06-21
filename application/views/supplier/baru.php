@@ -10,31 +10,31 @@
                 <a href="<?= site_url('supplier') ?>" class="btn btn-sm btn-secondary float-right"><i class="fa fa-arrow-circle-right"></i> Kembali</a>
               </h3>
               <hr>
-            </div>            
+            </div>
             <form id="supplier-form">
               <div class="row">
                 <div class="col-lg-12">
                     <div class="form-group">
                       <label>Perusahaan</label>
                         <input type="text" name="namaSupplier" class="form-control" placeholder="Isikan Nama Perusahaan">
-                    </div>                  
+                    </div>
                 </div>
 
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Tanggal Persetujuan</label>
                       <input type="date" name="tglPersetujuan" class="form-control" value="<?= date('Y-m-d') ?>">
-                  </div>                  
-                </div>                
+                  </div>
+                </div>
 
-                <div class="col-lg-6">  
+                <div class="col-lg-6">
                   <div class="form-group">
                     <label>Telepon</label>
                     <input type="text" name="telp" class="form-control" placeholder="Isikan No Telepon">
-                  </div>  
+                  </div>
                 </div>
 
-                <div class="col-lg-12">                    
+                <div class="col-lg-12">
                   <div class="form-group">
                     <label>Penanggung Jawab</label>
                       <input type="text" name="penanggungJawab" class="form-control" placeholder="Isikan Penanggung Jawab">
@@ -42,24 +42,24 @@
                 </div>
 
                 <div class="col-lg-12">
-                   <div class="form-group">
+                  <div class="form-group">
                     <label>Upload Persetujuan</label>
                       <input type="file" name="berkas" class="form-control-file">
-                  </div>                  
-                </div>                       
+                  </div>
+                </div>
 
                 <div class="col-lg-12">
                     <div class="form-group">
                       <label>Alamat</label>
                         <textarea name="alamat" rows="4" class="form-control" placeholder="Isikan Alamat"></textarea>
-                    </div>                  
+                    </div>
                 </div>
 
                 <div class="col-lg-12">
                   <div class="text-center">
                     <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-save"></i> Simpan</button>
                     <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-undo"></i> Reset</button>
-                  </div>                  
+                  </div>
                 </div>
               </div>
             </form>
@@ -88,13 +88,13 @@ $(function() {
         msg = ""
         if (data.status == "success") {
           msg = "Berhasil disimpan.";
-            toastr.success(msg, 'success');          
+            toastr.success(msg, 'success');
           window.location.href="<?= site_url('supplier'); ?>";
         } else {
           $.each(data.msg,function(i,value){
             msg += '<i class="fa fa-warning"></i> ' + data.msg[i] + '<br>'
           });
-          toastr.warning(msg, 'Warning').css("width", "100%");             
+          toastr.warning(msg, 'Warning').css("width", "100%");
         }
         $(':input[type="submit"]').prop('disabled', false);
       },

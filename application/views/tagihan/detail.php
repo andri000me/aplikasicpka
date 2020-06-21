@@ -15,7 +15,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<h5>
-								<i class="fa fa-globe"></i> Detail Hutang
+								<img src="<?=base_url('assets/login/images/cpka-logo.png')?>" alt="" width="40"> Detail Hutang
 								<small class="float-right"><h5><b>#<?= $tagihan['kode_tagihan'] ?></b></h5></small>
 							</h5>
 						</div>
@@ -28,7 +28,14 @@
 		                    <strong><?= $tagihan['nama_supplier'] ?></strong><br>
 		                    Alamat<br><strong><?= $tagihan['alamat_supplier']. ' | Telp : '.$tagihan['telp_supplier'] ?></strong><br>
 		                    Nomor Pembelian<br><strong><?= $tagihan['kode_barang_masuk'] ?></strong><br>
-		                    Nomor Retur<br><strong><?= $tagihan['no_retur'] ?></strong><br>
+		                    		                    Nomor Retur<br>
+		                    <strong>
+		                    	<?php if($tagihan['no_retur'] == "") :?>
+		                    		<span class="badge badge-secondary"><strong>tidak ada</strong></span>
+		                    	<?php else : ?>
+		                    		<?= $tagihan['no_retur'] ?>
+		                    	<?php endif; ?>	
+		                    </strong><br>
 		                  </address>							
 						</div>
 

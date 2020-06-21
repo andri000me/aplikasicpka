@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4">
       <div class="col-lg-10">
         <div class="card">
           <div class="card-body">
@@ -19,7 +19,7 @@
                 <div class="col-lg-3">
                   <div class="form-group">
                     <label>Tanggal Keluar</label>
-                    <input type="hidden" name="id_barang_keluar" id="id_barang_keluar" value="<?= $edit_barang_keluar['id'] ?>">                    
+                    <input type="hidden" name="id_barang_keluar" id="id_barang_keluar" value="<?= $edit_barang_keluar['id'] ?>">
                     <input type="date" name="tgl_keluar" class="form-control" value="<?= $edit_barang_keluar['tgl_keluar'] ?>">
                   </div>
                 </div>
@@ -38,7 +38,7 @@
                       <?php endforeach; ?>
                     </select>
                   </div>
-                </div>                
+                </div>
 
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -65,7 +65,7 @@
                     </thead>
 
                     <tbody id="form-body-edit">
-                      
+
                     </tbody>
                   </table>
                 </div>
@@ -78,7 +78,7 @@
                       </button>
                     </div>
                   </div>
-                </div>                
+                </div>
               </div>
             </form>
           </div>
@@ -98,7 +98,7 @@ $(document).ready(function() {
       $(this).closest('tr').find("#harga").val(getHarga);
       $(this).closest('tr').find("#stok").val(getStok);
   });
-      loadBarang();  
+      loadBarang();
 });
 
     function loadBarang(){
@@ -139,7 +139,7 @@ $(document).ready(function() {
                             + '<div class="form-group">'
                             +   '<input type="text" class="form-control" id="stok" name="stok" placeholder="stok" readonly value="'+v.stok+'">'
                             + '</div>'
-                            +'</td>';                            
+                            +'</td>';
 
                     html += '<td>'
                             + '<div class="form-group">'
@@ -205,7 +205,7 @@ $(document).ready(function() {
             + '<div class="form-group">'
             +   '<input type="text" class="form-control" id="harga" name="harga[]" placeholder="Harga" readonly>'
             + '</div>'
-            +'</td>';            
+            +'</td>';
 
     html += '<td>'
             + '<div class="form-group">'
@@ -230,7 +230,7 @@ $(document).ready(function() {
             +   '<button type="button" class="btn btn-sm btn-success" onclick="createBarang(this)"><i class="fa fa-check"></i>'
             +   '</button>'
             + '</div>'
-            +'</td>';            
+            +'</td>';
 
     html += '<td class="text-center">'
             + '<div class="form-group">'
@@ -343,14 +343,14 @@ $(document).ready(function() {
         msg = ""
         if (data.status == "success") {
           msg = "Berhasil disimpan.";
-          toastr.success(msg, 'success');                 
+          toastr.success(msg, 'success');
           window.location.href="<?= site_url('BarangKeluar'); ?>";
         } else {
           $.each(data.msg,function(i,value){
             msg += '<i class="fa fa-warning"></i> ' + data.msg[i] + '<br>'
           });
-          toastr.warning(msg, 'Warning').css("width", "100%");             
-             
+          toastr.warning(msg, 'Warning').css("width", "100%");
+
         }
         $(':input[type="submit"]').prop('disabled', false);
       },
@@ -359,5 +359,5 @@ $(document).ready(function() {
         $(':input[type="submit"]').prop('disabled', false);
       }
     });
-  });    
+  });
 </script>

@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4">
       <div class="col-lg-10">
         <div class="card">
           <div class="card-body">
@@ -23,7 +23,7 @@
                     <input type="date" name="tgl_keluar" class="form-control" value="<?= date('Y-m-d') ?>">
                   </div>
                 </div>
-                
+
 
                 <div class="col-lg-3">
                   <div class="form-group">
@@ -35,7 +35,7 @@
                       <?php endforeach; ?>
                     </select>
                   </div>
-                </div>                
+                </div>
 
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -71,7 +71,7 @@
                       </button>
                     </div>
                   </div>
-                </div>                
+                </div>
               </div>
             </form>
           </div>
@@ -106,13 +106,13 @@ $(document).ready(function() {
         msg = ""
         if (data.status == "success") {
           msg = "Berhasil disimpan.";
-            toastr.success(msg, 'success');          
+            toastr.success(msg, 'success');
           window.location.href="<?= site_url('barang-keluar'); ?>";
         } else {
           $.each(data.msg,function(i,value){
             msg += '<i class="fa fa-warning"></i> ' + data.msg[i] + '<br>'
           });
-          toastr.warning(msg, 'Warning').css("width", "100%");             
+          toastr.warning(msg, 'Warning').css("width", "100%");
         }
         $(':input[type="submit"]').prop('disabled', false);
       },
@@ -121,8 +121,8 @@ $(document).ready(function() {
         $(':input[type="submit"]').prop('disabled', false);
       }
     });
-  });  
-});  
+  });
+});
 
   function addBarang()
   {
@@ -148,7 +148,7 @@ $(document).ready(function() {
             +   '<div class="form-group">'
             +       '<input type="text" class="form-control" id="harga" name="harga[]" placeholder="Harga" readonly>'
             +   '</div>'
-            +'</td>';            
+            +'</td>';
 
     html += '<td>'
             +   '<div class="form-group">'
@@ -183,5 +183,5 @@ $(document).ready(function() {
   function removeRow($id)
   {
     $id.closest('tr').remove();
-  }  
+  }
 </script>

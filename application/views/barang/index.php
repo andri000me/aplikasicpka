@@ -19,6 +19,7 @@
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <?php $no = 1;?>
                         <?php foreach($barang as $item) : ?>

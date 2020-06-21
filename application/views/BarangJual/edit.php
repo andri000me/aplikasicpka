@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4">
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
@@ -27,15 +27,15 @@
                   <div class="form-group">
                     <label>Tanggal Jual</label>
                       <input type="date" name="tglJual" class="form-control" value="<?= $edit_BarangJual['tglJual'] ?>">
-                  </div>                      
+                  </div>
                 </div>
 
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Tanggal Tempo</label>
                       <input type="date" name="tglTempo" class="form-control" value="<?= $edit_BarangJual['tglTempo'] ?>">
-                  </div>                      
-                </div>                
+                  </div>
+                </div>
 
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -64,35 +64,35 @@
                         <?php endif ?>
                       <?php endforeach ?>
                     </select>
-                  </div> 
+                  </div>
                 </div>
 
                 <div class="col-lg-3">
                   <div class="form-group">
                     <label>Liter</label>
                       <input type="text" name="jumlahJual" class="form-control" placeholder="Isikan Jumlah Barang" value="<?= $edit_BarangJual['jumlahJual'] ?>">
-                  </div>                      
+                  </div>
                 </div>
 
                 <div class="col-lg-9">
                   <div class="form-group">
                     <label>Harga Jual</label>
                       <input type="text" name="hargaJual" class="form-control" placeholder="Isikan Harga Jual" value="<?= $edit_BarangJual['hargaJual'] ?>">
-                  </div>                      
+                  </div>
                 </div>
 
                 <div class="col-lg-12">
                   <div class="text-center">
                     <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i> ubah</button>
                     <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-undo"></i> Reset</button>
-                  </div>       
+                  </div>
                 </div>
-              </div>                  
-            </form> 
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 
@@ -112,14 +112,14 @@ $(function() {
         msg = ""
         if (data.status == "success") {
           msg = "Berhasil disimpan.";
-          toastr.success(msg, 'success');                 
+          toastr.success(msg, 'success');
           window.location.href="<?= site_url('barang-jual'); ?>";
         } else {
           $.each(data.msg,function(i,value){
             msg += '<i class="fa fa-warning"></i> ' + data.msg[i] + '<br>'
           });
-          toastr.warning(msg, 'Warning').css("width", "100%");             
-             
+          toastr.warning(msg, 'Warning').css("width", "100%");
+
         }
         $(':input[type="submit"]').prop('disabled', false);
       },

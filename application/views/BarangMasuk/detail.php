@@ -7,7 +7,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<h5>
-								<i class="fa fa-globe"></i> Detail Barang Masuk
+								<img src="<?=base_url('assets/login/images/cpka-logo.png')?>" alt="" width="40"> Detail Barang Masuk
 								<small class="float-right">Tanggal : <?= date('d/m/Y', strtotime($barang_masuk['tgl_masuk'])) ?></small>
 							</h5>
 						</div>

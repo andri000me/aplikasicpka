@@ -2,7 +2,7 @@
   <h1 class="h4 mb-2 text-gray-800">DATA TAGIHAN</h1>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="<?=site_url('tagihan/baru')?>" class="btn btn-sm btn-success"> <i class="fa fa-plus-circle"> Tambah Data</i></a>
+            <a href="<?=site_url('tagihan/baru')?>" class="btn btn-sm btn-success"> <i class="fa fa-plus-circle"></i> Tambah Data</a>
         </div>
 
         <div class="card-body">

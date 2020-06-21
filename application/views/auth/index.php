@@ -81,52 +81,52 @@
 
 
   <div id="dropDownSelect1"></div>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      });
+<script type="text/javascript">
+  $(document).ready(function(){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
 
-      $(document).on('submit','#form-login',function(event){
-        event.preventDefault();
-        $.ajax({
-          url: '<?php echo site_url('auth/login') ?>',
-          data: $(this).serialize(),
-          dataType: 'JSON',
-          method: 'POST',
-          success: function(response){
-            if (response.status == "success") {
-              Toast.fire({
-                type: 'success',
-                title: 'Berhasil masuk.'
-              });
-              window.location.href="<?php echo site_url('/'); ?>";
-            } else {
-              msg = ""
-              if (response.msg) {
-                $.each(response.msg,function(i,value){
-                  msg += '* ' + response.msg[i] + "<br>";
-                });
-                Swal.fire({
-                  type: 'error',
-                  title: 'Oops...',
-                  html: msg,
-                });
-              }
-            }
-          },
-          error: function(){
+    $(document).on('submit','#form-login',function(event){
+      event.preventDefault();
+      $.ajax({
+        url: '<?php echo site_url('auth/login') ?>',
+        data: $(this).serialize(),
+        dataType: 'JSON',
+        method: 'POST',
+        success: function(response){
+          if (response.status == "success") {
             Toast.fire({
-              type: 'error',
-              title: '<p style="color:red; font-size:12px">Kesalahan Internal.</p>'
+              type: 'success',
+              title: 'Berhasil masuk.'
             });
+            window.location.href="<?php echo site_url('/'); ?>";
+          } else {
+            msg = ""
+            if (response.msg) {
+              $.each(response.msg,function(i,value){
+                msg += '* ' + response.msg[i] + "<br>";
+              });
+              Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                html: msg,
+              });
+            }
           }
-        });
+        },
+        error: function(){
+          Toast.fire({
+            type: 'error',
+            title: '<p style="color:red; font-size:12px">Kesalahan Internal.</p>'
+          });
+        }
       });
     });
-  </script>
+  });
+</script>
 </body>
 </html>

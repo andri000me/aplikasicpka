@@ -21,7 +21,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<h5>
-								<img src="<?=  base_url('assets/img/logo.png') ?>" height="30">
+								<img src="<?=base_url('assets/login/images/cpka-logo.png')?>" alt="" width="40"> <strong>PT. CPKA</strong>
 								<small class="float-right">Tanggal : <?= date('d/m/Y', strtotime($barang_retur['tgl_retur'])) ?></small>
 							</h5>
 							<hr>

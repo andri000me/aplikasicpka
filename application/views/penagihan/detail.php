@@ -14,7 +14,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<h5>
-								<i class="fa fa-globe"></i> Detail Piutang
+								<img src="<?=base_url('assets/login/images/cpka-logo.png')?>" alt="" width="40"> Detail Piutang
 								<small class="float-right"><h5><b>#<?= $penagihan['kode_penagihan'] ?></b></h5></small>
 							</h5>
 						</div>

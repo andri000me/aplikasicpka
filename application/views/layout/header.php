@@ -10,6 +10,7 @@
   <meta name="author" content="">
 
   <title>Aplikasi PT.Citra Putra Kebun Asri</title>
+  <link rel="shortcut icon" href="<?=base_url('assets/login/images/cpka-logo.png')?>">
 
   <!-- Custom fonts for this template -->
   <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
@@ -55,7 +56,7 @@
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('/') ?>">
         <!--  -->
         <div class="sidebar-brand-icon rotate-n-15">
-          <img src="<?= base_url('assets/img/logo-sm.png') ?>" alt="" width="40">
+          <img src="<?=base_url('assets/login/images/cpka-logo.png')?>" alt="" width="40">
         </div>
         <div class="sidebar-brand-text mx-3">PT. CPKA</div>
       </a>
@@ -221,7 +222,6 @@
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
-                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="<?= site_url('auth/logout') ?>">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
