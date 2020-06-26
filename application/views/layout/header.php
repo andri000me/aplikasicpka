@@ -41,7 +41,6 @@
   <link href="<?= base_url('assets/js/toastr/toastr.min.css') ?>" rel="stylesheet">
   <script src="<?= base_url('assets/js/toastr/toastr.min.js') ?>"></script>
 
-
 </head>
 
 <body id="page-top">
